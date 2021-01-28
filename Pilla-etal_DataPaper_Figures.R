@@ -30,11 +30,11 @@ ggplot() +
 
 temp.summary=temp.data %>%
   group_by(LakeID,LakeName) %>%
-  summarize(MinYear=min(year(mdy(Date))),
-            MaxYear=max(year(mdy(Date))),
-            NYears=length(unique(year(mdy(Date)))),
-            MinMonth=min(month(mdy(Date))),
-            MaxMonth=max(month(mdy(Date))))
+  summarize(MinYear=min(year(ymd(Date))),
+            MaxYear=max(year(ymd(Date))),
+            NYears=length(unique(year(ymd(Date)))),
+            MinMonth=min(month(ymd(Date))),
+            MaxMonth=max(month(ymd(Date))))
 
 temp.summary.long=temp.summary %>%
   select(LakeID,LakeName,MinYear,MaxYear) %>%
